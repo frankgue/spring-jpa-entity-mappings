@@ -3,6 +3,9 @@ package com.gkfcsolution.springjpaentitymappings.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created on 2025 at 22:01
  * File: null.java
@@ -24,6 +27,6 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    private Customer customer;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Customer> customer = new HashSet<>();
 }
