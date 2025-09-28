@@ -24,9 +24,6 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-/*    @OneToOne(cascade = CascadeType.ALL, mappedBy = "item")
-    private Customer customer;*/
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    private Customer customer;
 }

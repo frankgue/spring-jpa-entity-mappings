@@ -27,8 +27,8 @@ private CustomerRepository customerRepository;
         customer.getItems().add(item);
         customer.getItems().add(item2);
 
-        item.setCustomer(customer);
-        item2.setCustomer(customer);
+      /*  item.setCustomer(customer);
+        item2.setCustomer(customer);*/
 
         customerRepository.save(customer);
     }

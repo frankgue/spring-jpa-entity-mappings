@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created on 2025 at 22:01
@@ -29,7 +31,10 @@ public class Customer {
     private String name;
 
     @Builder.Default
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-//    @JoinColumn(name = "customer_id")
-    private List<Item> items = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "customer_item",
+    joinColumns = {@JoinColumn(name = "customer_fk")},
+            inverseJoinColumns = {@JoinColumn(name = "item_fk")}
+    )
+    private Set<Item> items = new HashSet<>();
 }
